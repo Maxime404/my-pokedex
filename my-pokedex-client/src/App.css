@@ -12,16 +12,21 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 .pokemon-v-card {
   -webkit-box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.1);
-  background: #fff; }
+  background: #fff; 
+  border-radius: 0.5em;
+  transition: transform .15s; }
+  .pokemon-v-card:hover {
+    transform: scale(1.1); }
   .pokemon-v-card p {
     color: #494949;
   }
 
 .App-header {
-  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.05);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
