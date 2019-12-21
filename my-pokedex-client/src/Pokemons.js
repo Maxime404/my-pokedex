@@ -38,7 +38,7 @@ export default class Pokemons extends React.Component {
             case (event.target.value == 'orderByName'):
                 this.setState({
                     pokemons: this.state.pokemons.sort((a, b) => {
-                        return (a.nom > b.nom) ? 1 : (a.nom < b.nom) ? -1 : 0
+                        return (this.ignoreCase(a.nom) > this.ignoreCase(b.nom)) ? 1 : (this.ignoreCase(a.nom) < this.ignoreCase(b.nom)) ? -1 : 0
                     })
                 });
                 break;
@@ -46,7 +46,7 @@ export default class Pokemons extends React.Component {
             case (event.target.value == 'disorderByName'):
                 this.setState({
                     pokemons: this.state.pokemons.sort((a, b) => {
-                        return (b.nom > a.nom) ? 1 : (b.nom < a.nom) ? -1 : 0;
+                        return (this.ignoreCase(b.nom) > this.ignoreCase(a.nom)) ? 1 : (this.ignoreCase(b.nom) < this.ignoreCase(a.nom)) ? -1 : 0
                     })
                 });
                 break;
@@ -54,6 +54,10 @@ export default class Pokemons extends React.Component {
             default:
                 this.setState({ pokemons: this.state.pokemons.sort((a, b) => a.ndex - b.ndex) });
         }
+    }
+
+    ignoreCase(string) {
+        return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
     render() {
