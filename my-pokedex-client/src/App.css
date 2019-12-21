@@ -13,15 +13,15 @@
   }
 }
 
-.pokemon-v-card {
+.pokemon-pcard {
   -webkit-box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.1);
   background: #fff; 
   border-radius: 0.5em;
   transition: transform .15s; }
-  .pokemon-v-card:hover {
+  .pokemon-pcard:hover {
     transform: scale(1.1); }
-  .pokemon-v-card p {
+  .pokemon-pcard p {
     color: #494949;
   }
 
