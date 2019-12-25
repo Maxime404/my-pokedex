@@ -3,7 +3,7 @@ const pokemons = require('./pokemons');
 
 const api = Router();
 
-api.get('/', (rep, res) => {
+api.get('/', (req, res) => {
     res.send('<h1>Hi, welcome to our pokedex API!</h1>');
 })
 

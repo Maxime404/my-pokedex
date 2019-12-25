@@ -5,7 +5,7 @@ import PCard from './PCard'
 export default class Pokemons extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { pokemons: [] }
+        this.state = { pokemons_ref: [], pokemons: [] }
 
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -24,13 +24,14 @@ export default class Pokemons extends React.Component {
 
         const data = await response.json();
         //console.log(data)
-        this.setState({ pokemons: data.pokemons.sort((a, b) => a.ndex - b.ndex) });
+        this.setState({ pokemons_ref: data.pokemons.sort((a, b) => a.ndex - b.ndex)});
+        this.setState({ pokemons: this.state.pokemons_ref});
     }
 
     handleSearchChange(event) {
         this.setState({
-            pokemons: this.state.pokemons.filter((pokemon) => {
-                return pokemon.nom.includes(event.target.value);
+            pokemons: this.state.pokemons_ref.filter((pokemon) => {
+                return this.ignoreCase(`#${pokemon.ndex}${pokemon.nom}`).includes(this.ignoreCase(event.target.value));
             })
         });
     }
@@ -67,7 +68,7 @@ export default class Pokemons extends React.Component {
     }
 
     ignoreCase(string) {
-        return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     }
 
     render() {
