@@ -23,9 +23,9 @@ export default class Pokemons extends React.Component {
         })
 
         const data = await response.json();
-        //console.log(data)
-        this.setState({ pokemons_ref: data.pokemons.sort((a, b) => a.ndex - b.ndex)});
-        this.setState({ pokemons: this.state.pokemons_ref});
+        console.log(data)
+        this.setState({ pokemons_ref: data.pokemons.sort((a, b) => a.ndex - b.ndex) });
+        this.setState({ pokemons: this.state.pokemons_ref });
     }
 
     handleSearchChange(event) {
@@ -76,19 +76,23 @@ export default class Pokemons extends React.Component {
 
         return (
             <div>
-                <h1>Pokemon list:</h1>
                 <div class="container">
-                    <div class="mb-3">
-                        <label for="inputText">Trier par :  </label>
-                        <input name="inputText" type="text" onChange={this.handleSearchChange} />
-                        <label for="orderBy">Trier par :  </label>
-                        <select name="orderBy " type="text" onChange={this.handleSelectChange}>
-                            <option value="orderByNdex">Ndex</option>
-                            <option value="disorderByNdex">- Ndex</option>
-                            <option value="orderByName">Alphabétique</option>
-                            <option value="disorderByName">- Alphabétique</option>
-                        </select>
-                    </div>
+                    <form class="mb-4 form-inline" autocomplete="off" >
+                        <div class="form-group mx-2">
+                            <input class="form-control" type="text" placeholder="Recherche" name="search" onChange={this.handleSearchChange} />
+                        </div>
+                        <div class="form-group mx-2">
+                            <label for="orderBy">Trier par</label>
+                            <select class="form-control" name="orderBy " type="text" onChange={this.handleSelectChange}>
+                                <option value="orderByNdex">Ndex</option>
+                                <option value="disorderByNdex">- Ndex</option>
+                                <option value="orderByName">Alphabétique</option>
+                                <option value="disorderByName">- Alphabétique</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="container">
                     <div class="row">
                         {pokemons
                             .map(pokemon => (
