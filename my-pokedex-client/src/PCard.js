@@ -7,8 +7,8 @@ function PCard(props) {
         <a href={`/${props.ndex}`}>
             <div class="pokemon-pcard">
                 <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${props.ndex}.png`} alt={props.ndex} />
-                <p key={props.ndex}>
-                    #{props.ndex}<br />{props.nom}
+                <p class="text-left px-3 pb-3" key={props.ndex}>
+                    <strong>#{props.ndex}</strong><br />{props.nom}
                 </p>
             </div>
         </a>

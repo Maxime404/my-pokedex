@@ -77,26 +77,28 @@ export default class Pokemons extends React.Component {
         return (
             <div>
                 <div class="container">
-                    <form class="mb-4 form-inline" autocomplete="off" >
-                        <div class="form-group mx-2">
-                            <input class="form-control" type="text" placeholder="Recherche" name="search" onChange={this.handleSearchChange} />
+                    <form class="mb-4" autocomplete="off" >
+                        <div class="form-row">
+                            <div class="col-md-10 px-2 pb-2">
+                                <input class="form-control" type="text" placeholder="Recherche" name="search" onChange={this.handleSearchChange} />
+                            </div>
+                            <div class="col-md-2 px-2 pb-2">
+                                <select class="form-control" name="orderBy " type="text" onChange={this.handleSelectChange}>
+                                    <option value="orderByNdex">Ndex</option>
+                                    <option value="disorderByNdex">- Ndex</option>
+                                    <option value="orderByName">Alphabétique</option>
+                                    <option value="disorderByName">- Alphabétique</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group mx-2">
-                            <label for="orderBy">Trier par</label>
-                            <select class="form-control" name="orderBy " type="text" onChange={this.handleSelectChange}>
-                                <option value="orderByNdex">Ndex</option>
-                                <option value="disorderByNdex">- Ndex</option>
-                                <option value="orderByName">Alphabétique</option>
-                                <option value="disorderByName">- Alphabétique</option>
-                            </select>
-                        </div>
+
                     </form>
                 </div>
                 <div class="container">
                     <div class="row">
                         {pokemons
                             .map(pokemon => (
-                                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                                <div class="col-sm-4 col-md-3 col-lg-2 p-2">
                                     <PCard ndex={pokemon.ndex} nom={pokemon.nom} />
                                 </div>
                             ))}
