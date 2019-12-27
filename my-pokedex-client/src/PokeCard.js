@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function PCard(props) {
+function PokeCard(props) {
     return (
         <a href={`/${props.ndex}`}>
             <div class="pokemon-pcard">
@@ -16,4 +15,4 @@ function PCard(props) {
     )
 }
 
-export default PCard;
+export default PokeCard;

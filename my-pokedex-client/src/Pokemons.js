@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PCard from './PCard'
+import PokeCard from './PokeCard'
 
 export default class Pokemons extends React.Component {
     constructor(props) {
@@ -99,7 +99,7 @@ export default class Pokemons extends React.Component {
                         {pokemons
                             .map(pokemon => (
                                 <div class="col-sm-4 col-md-3 col-lg-2 p-2">
-                                    <PCard ndex={pokemon.ndex} nom={pokemon.nom} />
+                                    <PokeCard ndex={pokemon.ndex} nom={pokemon.nom} />
                                 </div>
                             ))}
                     </div>
