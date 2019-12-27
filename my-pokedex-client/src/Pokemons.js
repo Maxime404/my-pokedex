@@ -62,6 +62,14 @@ export default class Pokemons extends React.Component {
                 });
                 break;
 
+            case (event.target.value === 'orderByWeight'):
+                this.setState({ pokemons: this.state.pokemons.sort((a, b) => a.poids - b.poids) });
+                break;
+
+            case (event.target.value === 'disorderByWeight'):
+                this.setState({ pokemons: this.state.pokemons.sort((a, b) => b.poids - a.poids) });
+                break;
+
             default:
                 this.setState({ pokemons: this.state.pokemons.sort((a, b) => a.ndex - b.ndex) });
         }
@@ -85,9 +93,11 @@ export default class Pokemons extends React.Component {
                             <div class="col-md-2 px-2 pb-2">
                                 <select class="form-control" name="orderBy " type="text" onChange={this.handleSelectChange}>
                                     <option value="orderByNdex">Ndex</option>
-                                    <option value="disorderByNdex">- Ndex</option>
+                                    <option value="disorderByNdex">Inv. Ndex</option>
                                     <option value="orderByName">Alphabétique</option>
-                                    <option value="disorderByName">- Alphabétique</option>
+                                    <option value="disorderByName">Analphabétique</option>
+                                    <option value="orderByWeight">Poids</option>
+                                    <option value="disorderByWeight">Inv. Poids</option>
                                 </select>
                             </div>
                         </div>
