@@ -15,7 +15,7 @@ function Home() {
     <Router>
       <div className="Home">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src={logo} classalt="logo" />
           </a>
         </div>
