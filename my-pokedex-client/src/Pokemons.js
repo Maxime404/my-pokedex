@@ -92,12 +92,12 @@ export default class Pokemons extends React.Component {
                             </div>
                             <div class="col-md-2 px-2 pb-2">
                                 <select class="form-control" name="orderBy " type="text" onChange={this.handleSelectChange}>
-                                    <option value="orderByNdex">Ndex</option>
-                                    <option value="disorderByNdex">Inv. Ndex</option>
+                                    <option value="orderByNdex">- Ndex</option>
+                                    <option value="disorderByNdex">+ Ndex</option>
                                     <option value="orderByName">Alphabétique</option>
                                     <option value="disorderByName">Analphabétique</option>
-                                    <option value="orderByWeight">Poids</option>
-                                    <option value="disorderByWeight">Inv. Poids</option>
+                                    <option value="orderByWeight">- Poids</option>
+                                    <option value="disorderByWeight">+ Poids</option>
                                 </select>
                             </div>
                         </div>
